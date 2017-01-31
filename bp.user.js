@@ -13,7 +13,7 @@
 var URL = window.location.href
 if(URL.includes("scratch.mit.edu/users/") === true) {
         
-var username = URL.split("/")[3];
+var username = URL.split("/")[4];
 console.log(username)
 
 var xmlhttp = new XMLHttpRequest(),
