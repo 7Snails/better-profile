@@ -12,9 +12,8 @@
 
 var URL = window.location.href
 if(URL.includes("scratch.mit.edu/users/") === true) {
-        
+
 var username = URL.split("/")[4];
-console.log(username)
 
 var xmlhttp = new XMLHttpRequest(),
         parsedJSON;
@@ -27,7 +26,10 @@ var xmlhttp = new XMLHttpRequest(),
       if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
         parsedJSON = JSON.parse(xmlhttp.responseText);
         var joindate = parsedJSON.history.joined;
-        console.log(joindate);
+        var newjoindate = joindate.split("T")[0].split("-");
+        newjoindate = newjoindate[1] + "/" + newjoindate[2] + "/" + newjoindate[0];
+        //console.log(newjoindate);
+        document.getElementsByClassName("footer")[0].innerHTML = newjoindate;
       }
    };
 }
