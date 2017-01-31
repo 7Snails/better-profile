@@ -10,7 +10,7 @@
 // @updateURL    https://github.com/7Snails/better-profile/raw/master/bp.user.js
 // ==/UserScript==
 
-var username = "7Snails";//Scratch.INIT_DATA.LOGGED_IN_USER.model.username;
+var username = Scratch.INIT_DATA.LOGGED_IN_USER.model.username;
 
 var xmlhttp = new XMLHttpRequest(),
         parsedJSON;
