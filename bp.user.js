@@ -6,6 +6,8 @@
 // @match        https://scratch.mit.edu/users/*
 // @match        http://scratch.mit.edu/users/*
 // @grant        none
+// @downloadURL  https://github.com/7Snails/better-profile/raw/master/bp.user.js
+// @updateURL    https://github.com/7Snails/better-profile/raw/master/bp.user.js
 // ==/UserScript==
 
 var username = "7Snails";//Scratch.INIT_DATA.LOGGED_IN_USER.model.username;
