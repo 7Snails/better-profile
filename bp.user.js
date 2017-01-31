@@ -10,11 +10,15 @@
 // @updateURL    https://github.com/7Snails/better-profile/raw/master/bp.user.js
 // ==/UserScript==
 
-var username = Scratch.INIT_DATA.LOGGED_IN_USER.model.username;
+var URL = window.location.href
+if(URL.includes("scratch.mit.edu/users/") === true) {
+        
+var username = URL.split("/")[3];
+console.log(username)
 
 var xmlhttp = new XMLHttpRequest(),
         parsedJSON;
-if(window.location.href.includes("scratch.mit.edu/users/") === true) {
+
 
 
     xmlhttp.open('GET', 'https://api.scratch.mit.edu/users/' + username, true);
