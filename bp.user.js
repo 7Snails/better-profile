@@ -16,20 +16,22 @@ var URL = window.location.href
 var username = URL.split("/")[4];
 
 var xmlhttp = new XMLHttpRequest(),
-        parsedJSON;
+  parsedJSON;
 
 
 
 xmlhttp.open('GET', 'https://api.scratch.mit.edu/users/' + username, true);
 xmlhttp.send();
 xmlhttp.onreadystatechange = function() {
-if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-parsedJSON = JSON.parse(xmlhttp.responseText);
-var joindate = parsedJSON.history.joined;
-var newjoindate = joindate.split("T")[0].split("-");
-newjoindate = newjoindate[1] + "/" + newjoindate[2] + "/" + newjoindate[0];
-//console.log(newjoindate);
-document.getElementsByClassName("footer")[0].innerHTML = newjoindate;
-}
+  if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+    parsedJSON = JSON.parse(xmlhttp.responseText);
+    var joindate = parsedJSON.history.joined;
+    var newjoindate = joindate.split("T")[0].split("-");
+    newjoindate = newjoindate[1] + "/" + newjoindate[2] + "/" + newjoindate[0];
+    //console.log(newjoindate);
+    var node = document.createElement("P");
+    var textnode = document.createTextNode(newjoindate);
+    node.appendChild(textnode);
+    document.getElementsByClassName("footer")[0].appendChild(node);
+  }
 };
-
